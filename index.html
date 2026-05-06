@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Caregiving Designers</title>
 
-<title>Everyday Designers</title>
-
-<!-- Cute fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* RESET */
 *{
   margin:0;
   padding:0;
@@ -22,40 +18,48 @@ body{
   font-family:"Nunito",sans-serif;
   background:#fff6ec;
   color:#5a3b2e;
+  cursor:none;
 }
 
-/* TITLE */
+.emoji-cursor{
+  position:fixed;
+  left:0;
+  top:0;
+  font-size:32px;
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%, -50%);
+}
 header{
   min-height:100vh;
   padding:40px;
   text-align:center;
+  background:linear-gradient(#fff6ec,#ffe2c4);
+  overflow:hidden;
 }
 
 h1{
   font-family:"Cherry Bomb One",cursive;
-  font-size:64px;
+  font-size:72px;
   color:#ff7a59;
+  text-shadow:3px 3px 0 #fff0b8;
 }
 
 .subtitle{
-  margin-top:15px;
-  font-size:18px;
-  max-width:600px;
-  margin-left:auto;
-  margin-right:auto;
+  margin:15px auto;
+  max-width:650px;
+  font-size:19px;
+  line-height:1.6;
 }
 
-/* SCENE */
 .scene{
   margin-top:60px;
   position:relative;
   height:500px;
 }
 
-/* FLOATING OBJECTS */
 .item{
   position:absolute;
-  cursor:pointer;
   text-align:center;
   animation:float 3s ease-in-out infinite;
   transition:0.3s;
@@ -63,10 +67,11 @@ h1{
 
 .item:hover{
   transform:scale(1.2) rotate(-6deg);
+  filter:drop-shadow(0 12px 12px rgba(150,80,40,0.25));
 }
 
 .icon{
-  font-size:110px;
+  font-size:120px;
 }
 
 .item span{
@@ -74,127 +79,162 @@ h1{
   margin-top:8px;
   font-weight:800;
   background:#fff3b5;
-  padding:6px 12px;
+  padding:7px 15px;
   border-radius:999px;
-  font-size:16px;
+  color:#b45c3e;
 }
 
-/* POSITIONS */
-.pot{left:10%; top:100px;}
-.sofa{right:10%; top:120px;}
-.desk{left:25%; bottom:40px;}
-.broom{right:25%; bottom:40px;}
+.pot{left:9%;top:100px;}
+.sofa{right:10%;top:110px;}
+.desk{left:25%;bottom:50px;}
+.broom{right:25%;bottom:45px;}
 
-/* FLOAT ANIMATION */
 @keyframes float{
   0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-12px);}
+  50%{transform:translateY(-14px);}
 }
 
-/* SECTIONS */
 section{
-  padding:70px 12%;
+  padding:70px 10%;
 }
 
 .section-title{
-  font-family:"Cherry Bomb One";
-  font-size:40px;
+  font-family:"Cherry Bomb One",cursive;
   text-align:center;
+  font-size:44px;
   color:#ff7a59;
   margin-bottom:30px;
 }
 
 .card{
   background:#fffdf8;
-  padding:30px;
-  border-radius:25px;
+  padding:32px;
+  border-radius:28px;
   margin-bottom:25px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  line-height:1.7;
+  box-shadow:0 10px 25px rgba(110,70,40,0.1);
+  line-height:1.75;
 }
 
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:20px;
+  gap:24px;
 }
 
 .quote{
   margin-top:15px;
   background:#ffe8d6;
-  padding:15px;
-  border-radius:15px;
+  padding:16px;
+  border-radius:18px;
   font-style:italic;
+  color:#8a4a35;
 }
 
-/* LEARNING */
 .learn{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:20px;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
 }
 
 .learn div{
   background:#fff3d9;
-  padding:20px;
-  border-radius:20px;
+  padding:25px;
+  border-radius:24px;
+  line-height:1.6;
 }
 
-/* MODAL */
+.learn h3{
+  color:#d86b4e;
+  margin-bottom:10px;
+}
+
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.4);
+  background:rgba(70,43,30,0.45);
   justify-content:center;
   align-items:center;
+  padding:30px;
+  z-index:99;
 }
 
 .modal-content{
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  max-width:700px;
-  max-height:80vh;
-  overflow:auto;
+  background:#fffdf8;
+  max-width:900px;
+  max-height:85vh;
+  overflow-y:auto;
+  padding:36px;
+  border-radius:30px;
+  line-height:1.75;
+  box-shadow:0 18px 45px rgba(0,0,0,0.25);
+}
+
+.modal-content h2{
+  font-family:"Cherry Bomb One",cursive;
+  color:#ff7a59;
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.modal-content h3{
+  color:#d86b4e;
+  margin-top:28px;
+  margin-bottom:10px;
+}
+
+.modal-content p{
+  margin-bottom:12px;
+}
+
+.speaker{
+  font-weight:800;
+  color:#b6553f;
 }
 
 .close{
   float:right;
-  cursor:pointer;
-  font-size:22px;
+  border:none;
+  background:#ff9c75;
+  color:white;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  font-size:20px;
 }
 
-/* MOBILE */
-@media(max-width:800px){
-  .grid, .learn{
-    grid-template-columns:1fr;
-  }
+footer{
+  text-align:center;
+  padding:40px;
+  background:#ffd4ad;
+  color:#6d3f2c;
+}
 
+@media(max-width:800px){
+  h1{font-size:48px;}
   .scene{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:20px;
     height:auto;
   }
-
   .item{position:static;}
+  .grid,.learn{
+    grid-template-columns:1fr;
+  }
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Everyday Designers</h1>
+  <h1>Caregiving Designers</h1>
   <p class="subtitle">
-    Small daily actions — cooking, cleaning, organizing — can also be design.
+   Click each object to enter an interview about cooking, organizing, and cleaning as forms of design.
   </p>
 
   <div class="scene">
-
     <div class="item pot" onclick="openModal('i1')">
       <div class="icon">🥘</div>
       <span>Cooking</span>
@@ -214,134 +254,372 @@ section{
       <div class="icon">🧹</div>
       <span>Cleaning</span>
     </div>
-
   </div>
-
 </header>
 
-<!-- INTRO -->
 <section>
-  <h2 class="section-title">About</h2>
+  <h2 class="section-title">About This Project</h2>
   <div class="card">
-    This project explores how everyday people think and act like designers without realizing it. 
-    Through four interviews, we discovered that design exists in daily life — in cooking, organizing, 
-    cleaning, and adapting spaces.
+    <p>
+      This project explores the idea that design can exist in ordinary domestic actions. Our group interviewed four people about cooking, organizing, and cleaning. Although these activities may seem simple, each one involves decision-making, adjustment, problem-solving, and care for other people.
+    </p>
+    <p>
+      The website uses a warm home scene because most of our interviews are connected to kitchens, living rooms, and apartments. The clickable objects act like small entrances into each person’s daily design practice.
+    </p>
   </div>
 </section>
 
-<!-- INTERVIEWS -->
 <section>
-  <h2 class="section-title">Interviews</h2>
+  <h2 class="section-title">Interview Summary</h2>
 
   <div class="grid">
-
     <div class="card">
       <h3>Cooking as Design</h3>
-      <p>Li Wei describes cooking as balancing flavor, color, and emotion.</p>
-      <div class="quote">“Cooking is creating an experience for others.”</div>
+      <p>Li Wei describes cooking as balancing color, flavor, texture, and emotion.</p>
+      <div class="quote">“Cooking is really about using food to create an experience for others.”</div>
     </div>
 
     <div class="card">
-      <h3>Organizing Space</h3>
-      <p>Chen Mei adjusts space based on how people live.</p>
-      <div class="quote">“It’s about comfort, not just storage.”</div>
+      <h3>Organizing Space as Design</h3>
+      <p>Chen Mei explains how organizing a home means balancing beauty, function, and family needs.</p>
+      <div class="quote">“It’s not just about storing things; it’s also about making it comfortable to live in.”</div>
     </div>
 
     <div class="card">
-      <h3>Student Life</h3>
-      <p>Alex constantly redesigns his small apartment.</p>
-      <div class="quote">“It never feels finished.”</div>
+      <h3>Learning Through Practice</h3>
+      <p>Alex talks about living independently and constantly redesigning a small apartment.</p>
+      <div class="quote">“It never really feels finished.”</div>
     </div>
 
     <div class="card">
-      <h3>Cleaning</h3>
-      <p>Maria sees cleaning as changing atmosphere.</p>
-      <div class="quote">“It changes how people feel.”</div>
+      <h3>Cleaning and Atmosphere</h3>
+      <p>Maria sees cleaning as transforming the atmosphere of a space.</p>
+      <div class="quote">“Cleaning isn’t only about removing dirt.”</div>
     </div>
-
   </div>
 </section>
 
-<!-- LEARNING -->
 <section>
   <h2 class="section-title">What We Learned</h2>
 
   <div class="learn">
-
     <div>
       <h3>Design is Everyday</h3>
-      <p>People design without realizing it.</p>
+      <p>Design is not limited to professional studios. People design through daily routines, habits, and small decisions.</p>
     </div>
 
     <div>
-      <h3>Design is Iteration</h3>
-      <p>Everything improves through adjustment.</p>
+      <h3>Design is Iterative</h3>
+      <p>All four interviewees adjust their process over time. They try, observe, change, and improve.</p>
     </div>
 
     <div>
-      <h3>Design is Emotion</h3>
-      <p>It shapes feelings, not just function.</p>
+      <h3>Design is Emotional</h3>
+      <p>Design is not only about function. It also shapes comfort, care, mood, and experience.</p>
     </div>
-
   </div>
 </section>
 
-<!-- REFLECTION -->
 <section>
   <h2 class="section-title">Reflection</h2>
 
   <div class="card">
-    At first, we focused on functionality. But interviews showed that people care more about experience and feeling.
-    <br><br>
-    Many participants did not see themselves as designers, even though they made design decisions.
-    <br><br>
-    This project changed how we understand design — it is part of everyday life.
-  </div>
+    <p>
+      At the beginning of this project, our group was mainly interested in the connection between everyday labor and design thinking. We first assumed that cooking, organizing, and cleaning could be compared to design because they involve planning and practical problem-solving. However, after completing the interviews, our understanding became more complex. The interviewees did not only talk about efficiency or function. They also talked about comfort, atmosphere, emotion, personal habits, and the needs of other people.
+    </p>
 
+    <p>
+      One of the most important things we learned is that everyday design often happens without being named as design. Most of the people we interviewed did not immediately identify themselves as designers. However, their answers clearly showed many design behaviors. They worked with constraints, considered users, balanced visual and practical elements, tested solutions, and made changes based on experience. This made us realize that design is not only a professional title. It can also be a way of thinking, noticing, and responding to life.
+    </p>
+
+    <p>
+      The interviews also changed our original research direction. At first, we focused more on function: how people arrange objects, solve problems, or complete tasks. But the interviewees often emphasized feeling and experience. Li Wei wanted people to feel cared for through food. Chen Mei wanted her home to feel relaxing instead of chaotic. Alex noticed how organization affects roommates’ moods. Maria described cleaning as something that changes how people emotionally experience a home. These answers helped us understand that design is not only about making something work. It is also about shaping how people feel.
+    </p>
+
+    <p>
+      In the website, we tried to reflect this discovery through a soft, warm, and playful visual style. The homepage is designed like a small illustrated home. Each object represents one interview and invites the viewer to enter a different part of everyday life. The cute and interactive style makes the project feel more personal and approachable, which matches the topic of ordinary people as everyday designers.
+    </p>
+
+    <p>
+      Overall, this project helped us see design in a broader way. A cook, a homemaker, a student, and a house cleaner may not describe their work with design vocabulary, but they all shape experiences for themselves and others. Their daily decisions show that design can happen quietly, repeatedly, and carefully in the background of everyday life.
+    </p>
+  </div>
 </section>
 
-<!-- MODALS -->
-
+<!-- Interview 1 -->
 <div class="modal" id="i1">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('i1')">✖</span>
-    <h2>Cooking as Design</h2>
-    <p>Li Wei combines ingredients like a designer combines elements. He adjusts constantly and cooks based on people’s needs.</p>
+    <button class="close" onclick="closeModal('i1')">×</button>
+    <h2>Interview 1 — Cooking as Design</h2>
+    <p><strong>Interviewee:</strong> Li Wei, 48, restaurant cook</p>
+    <p><strong>Location:</strong> In-person, home kitchen, Queens, NY</p>
+
+    <h3>Full Interview</h3>
+
+    <p><span class="speaker">Mona:</span> Hi Wei, thank you again for having us. I’ll start with my questions.</p>
+    <p><span class="speaker">Mona:</span> When you cook, do you ever feel like you’re “designing” something rather than just making food?</p>
+    <p><span class="speaker">Li Wei:</span> Well, actually, yes. Sometimes I don’t feel like I’m “cooking”; it’s more like putting things together to create a complete dish. Especially when I’m cooking at home, I have more freedom, so it feels like I’m “designing” a dish.</p>
+
+    <p><span class="speaker">Mona:</span> Do you think about how different elements come together, like a composition?</p>
+    <p><span class="speaker">Li Wei:</span> Yes, I do. Things like color, flavor, and texture. For example, if a dish is all soft, it feels a bit monotonous, so I’ll add something crispy to make it more interesting.</p>
+
+    <p><span class="speaker">Mona:</span> Would you say balance is important, like in design?</p>
+    <p><span class="speaker">Li Wei:</span> It’s very important. It can’t be too salty or too bland; sometimes even the slightest difference can throw off the whole dish. So I make adjustments as I go to get it just right.</p>
+
+    <p><span class="speaker">Mona:</span> Do you ever adjust things while cooking, like designers refine their work?</p>
+    <p><span class="speaker">Li Wei:</span> I do that all the time. I rarely follow a fixed set of steps; I taste as I go and make changes. For example, if I feel it’s not flavorful enough, I’ll add a little more seasoning and keep tweaking until I’m satisfied.</p>
+
+    <p><span class="speaker">Yi:</span> Do you think cooking is similar to solving a problem?</p>
+    <p><span class="speaker">Li Wei:</span> Yes, it’s very similar. Sometimes, depending on what ingredients you have at home, you have to figure out how to combine them—you can’t always use your ideal ingredients.</p>
+
+    <p><span class="speaker">Yi:</span> So it’s like working with constraints?</p>
+    <p><span class="speaker">Li Wei:</span> Yes, exactly—working within limited conditions. For example, if you’re missing an ingredient, you have to find a way to substitute it. That process is actually quite similar to problem-solving.</p>
+
+    <p><span class="speaker">Yi:</span> Do you plan first, or just start and adjust?</p>
+    <p><span class="speaker">Li Wei:</span> Usually I have a general idea—like what I want to make today—but as for the specifics, I often figure it out as I go and make adjustments based on the situation.</p>
+
+    <p><span class="speaker">Yi:</span> Would you say that’s similar to a design process?</p>
+    <p><span class="speaker">Li Wei:</span> I think it’s quite similar. It’s not something that’s completely set in stone from the start; rather, it’s something that’s gradually refined through adjustments.</p>
+
+    <p><span class="speaker">Xinyi:</span> Do you think about who you’re cooking for, the way designers think about users?</p>
+    <p><span class="speaker">Li Wei:</span> Yes, I do. That’s very important. When cooking for different people, the approach is definitely different.</p>
+
+    <p><span class="speaker">Xinyi:</span> How does that affect your decisions?</p>
+    <p><span class="speaker">Li Wei:</span> For example, if I’m cooking for the elderly, I’ll make it lighter and softer; for children, I might make it a bit more fun and colorful. I adjust it based on their preferences.</p>
+
+    <p><span class="speaker">Xinyi:</span> Do you think emotion plays a role—like how people feel when they eat?</p>
+    <p><span class="speaker">Li Wei:</span> Yes, it does. I want them to feel relaxed and happy while eating, not just full.</p>
+
+    <p><span class="speaker">Xinyi:</span> So it’s not just functional, but also emotional?</p>
+    <p><span class="speaker">Li Wei:</span> Right. It’s not just about filling their stomachs; it’s about making them feel comfortable, and sometimes even a little bit cared for.</p>
+
+    <p><span class="speaker">Annie:</span> Do you think experience matters more than following recipes?</p>
+    <p><span class="speaker">Li Wei:</span> I think so. At first, you might need to follow a recipe, but after cooking for a while, you develop your own sense of what works and know what feels right.</p>
+
+    <p><span class="speaker">Annie:</span> Do you still use recipes?</p>
+    <p><span class="speaker">Li Wei:</span> I’ll glance at them occasionally, but I don’t follow them exactly. I mostly use them as a reference and then adapt them myself.</p>
+
+    <p><span class="speaker">Annie:</span> Would you say cooking is like an iterative process?</p>
+    <p><span class="speaker">Li Wei:</span> Yes, every time I cook, it turns out a little differently, and it gradually gets a little better.</p>
+
+    <p><span class="speaker">Annie:</span> If you had to describe cooking as design in one sentence, what would you say?</p>
+    <p><span class="speaker">Li Wei:</span> I think cooking is really about using food to create an experience for others—to leave them with a certain feeling after eating, rather than just having had a meal.</p>
   </div>
 </div>
 
+<!-- Interview 2 -->
 <div class="modal" id="i2">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('i2')">✖</span>
-    <h2>Organizing Space</h2>
-    <p>Chen Mei organizes based on balance, comfort, and family habits.</p>
+    <button class="close" onclick="closeModal('i2')">×</button>
+    <h2>Interview 2 — Organizing Space as Design</h2>
+    <p><strong>Interviewee:</strong> Chen Mei, 45, homemaker</p>
+    <p><strong>Location:</strong> In-person, living room, family apartment</p>
+
+    <h3>Full Interview</h3>
+
+    <p><span class="speaker">Mona:</span> When you organize your home, do you feel like you’re designing the space?</p>
+    <p><span class="speaker">Chen Mei:</span> Well, actually, I do get that feeling. Because every time I tidy up, I think about where things should go and how to arrange them for maximum convenience—it’s not just about tidying up.</p>
+
+    <p><span class="speaker">Mona:</span> Do you think about how things look and how they work together?</p>
+    <p><span class="speaker">Chen Mei:</span> Yes, I do. For example, if things are placed too haphazardly, it looks messy and uncomfortable, but if they’re just pretty but not practical, that won’t work either. So I usually have to consider both aspects.</p>
+
+    <p><span class="speaker">Mona:</span> Do you try to create a kind of balance in your space?</p>
+    <p><span class="speaker">Chen Mei:</span> Yes, I don’t like it when things feel too cramped, nor do I like it when there’s too much empty space. Too many things create clutter, while too much empty space feels lifeless, so it has to be just right.</p>
+
+    <p><span class="speaker">Mona:</span> Do you adjust things over time?</p>
+    <p><span class="speaker">Chen Mei:</span> I change things around often. Sometimes I think a certain arrangement works well at first, but after using it for a while, I realize it’s not very convenient, so I’ll rearrange it.</p>
+
+    <p><span class="speaker">Yi:</span> Do you think organizing is like solving a problem?</p>
+    <p><span class="speaker">Chen Mei:</span> I think so, especially when you don’t have a lot of space at home. Every time I organize, it’s like figuring out how to arrange things.</p>
+
+    <p><span class="speaker">Yi:</span> Like working with constraints?</p>
+    <p><span class="speaker">Chen Mei:</span> Yes, it’s very obvious in small apartments. You can’t just put things anywhere; you have to figure out how to use the space, otherwise it gets messy very quickly.</p>
+
+    <p><span class="speaker">Yi:</span> Do you plan ahead or just experiment?</p>
+    <p><span class="speaker">Chen Mei:</span> I might have a rough idea at the start, but most of the time I just try things out as I go. For example, if something isn’t convenient where I put it, I’ll move it somewhere else and try again.</p>
+
+    <p><span class="speaker">Yi:</span> So it’s kind of a process?</p>
+    <p><span class="speaker">Chen Mei:</span> Yes, it’s something I adjust gradually—it doesn’t get sorted out in one go.</p>
+
+    <p><span class="speaker">Xinyi:</span> Do you think about your family when organizing?</p>
+    <p><span class="speaker">Chen Mei:</span> Yes, that’s very important. I don’t just organize things based on my own habits.</p>
+
+    <p><span class="speaker">Xinyi:</span> How does that affect your decisions?</p>
+    <p><span class="speaker">Chen Mei:</span> For example, I put things my children use often where they can easily reach them, and I also make things the elderly use more accessible, so everything works more smoothly for everyone.</p>
+
+    <p><span class="speaker">Xinyi:</span> Do you think about how the space feels emotionally?</p>
+    <p><span class="speaker">Chen Mei:</span> Yes, I do. I want our home to feel relaxing, not chaotic or oppressive the moment you walk in.</p>
+
+    <p><span class="speaker">Xinyi:</span> So it’s also about the experience?</p>
+    <p><span class="speaker">Chen Mei:</span> Yes, actually. It’s not just about “storing things”; it’s also about making it comfortable to live in.</p>
+
+    <p><span class="speaker">Annie:</span> Have your habits changed over time?</p>
+    <p><span class="speaker">Chen Mei:</span> They’ve changed a lot. I used to care more about how things looked, but now I care more about how practical they are.</p>
+
+    <p><span class="speaker">Annie:</span> What changed?</p>
+    <p><span class="speaker">Chen Mei:</span> Maybe after living here for a while, I realized that some ways of organizing things that look neat are actually quite inconvenient to use, so I’ve gradually adjusted them.</p>
+
+    <p><span class="speaker">Annie:</span> Do you learn from your mistakes?</p>
+    <p><span class="speaker">Chen Mei:</span> Yes, I do. For example, if I put something in the wrong place at first and it’s really inconvenient to use, I won’t put it there next time.</p>
+
+    <p><span class="speaker">Annie:</span> Would you say organizing is a form of design?</p>
+    <p><span class="speaker">Chen Mei:</span> I think so, because you’re constantly adjusting the space based on your life to make it better suited for people.</p>
   </div>
 </div>
 
+<!-- Interview 3 -->
 <div class="modal" id="i3">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('i3')">✖</span>
-    <h2>Student Life</h2>
-    <p>Alex redesigns his environment constantly through trial and error.</p>
+    <button class="close" onclick="closeModal('i3')">×</button>
+    <h2>Interview 3 — Learning Through Practice as Design</h2>
+    <p><strong>Interviewee:</strong> Alex Rivera, 22, college student</p>
+    <p><strong>Location:</strong> Online interview via Zoom</p>
+
+    <h3>Full Interview</h3>
+
+    <p><span class="speaker">Mona:</span> Living as a student usually means dealing with limited space and resources. Do you ever feel like you’re “designing” your daily environment?</p>
+    <p><span class="speaker">Alex:</span> Yeah, honestly, especially because my apartment is really small. I’m constantly figuring out how to make things fit and work better. Sometimes it feels less like cleaning and more like trying to redesign the space so it’s easier to live in.</p>
+
+    <p><span class="speaker">Mona:</span> What kinds of things do you pay attention to when organizing your space?</p>
+    <p><span class="speaker">Alex:</span> Mostly convenience. Like, I think about what I use every day and where it makes the most sense to put it. But I also care about how the space feels. If everything is too crowded, I get stressed really quickly.</p>
+
+    <p><span class="speaker">Mona:</span> Do you think your routines changed after living independently?</p>
+    <p><span class="speaker">Alex:</span> Definitely. Before moving out, I never really thought about how much effort goes into maintaining a space. Now I notice that even small things—like where I leave my bag or dishes—can affect the whole environment.</p>
+
+    <p><span class="speaker">Mona:</span> Do you adjust your systems over time?</p>
+    <p><span class="speaker">Alex:</span> All the time. I think I found a good setup, but after a few weeks I realize something isn’t practical, so I change it again. It’s kind of trial and error.</p>
+
+    <p><span class="speaker">Yi:</span> Do you think working with a small apartment feels similar to designing under constraints?</p>
+    <p><span class="speaker">Alex:</span> Yeah, for sure. Since I don’t have much room, every area has to serve multiple purposes. My desk is for studying, eating, and sometimes even storage. You have to get creative.</p>
+
+    <p><span class="speaker">Yi:</span> Do you usually plan your organization carefully or improvise more?</p>
+    <p><span class="speaker">Alex:</span> I usually start with an idea, but honestly most of it happens while I’m doing it. I move things around a lot until it finally feels right.</p>
+
+    <p><span class="speaker">Yi:</span> Do you think mistakes help you improve your space?</p>
+    <p><span class="speaker">Alex:</span> Definitely. Sometimes I organize things in a way that looks nice at first, but later I realize it’s annoying to use every day. Then I learn from that and change it.</p>
+
+    <p><span class="speaker">Yi:</span> So would you say the process is iterative?</p>
+    <p><span class="speaker">Alex:</span> Yeah, exactly. It never really feels finished. I’m always adjusting something depending on what’s working or not working.</p>
+
+    <p><span class="speaker">Xinyi:</span> Since you live with roommates, do you think about other people when organizing shared spaces?</p>
+    <p><span class="speaker">Alex:</span> Yes, a lot actually. You can’t only think about your own habits because everyone uses the same kitchen and living room.</p>
+
+    <p><span class="speaker">Xinyi:</span> How does that affect your decisions?</p>
+    <p><span class="speaker">Alex:</span> I try to keep shared things in places everyone can reach easily, and I also try not to take up too much space. Otherwise it can create tension really quickly.</p>
+
+    <p><span class="speaker">Xinyi:</span> Do you think organization affects the atmosphere between people?</p>
+    <p><span class="speaker">Alex:</span> Yeah, definitely. When the apartment is messy, everyone gets irritated more easily. But when the space feels clean and organized, it actually changes people’s moods.</p>
+
+    <p><span class="speaker">Xinyi:</span> So it’s also about creating a better shared experience?</p>
+    <p><span class="speaker">Alex:</span> Yes, exactly. A space isn’t just functional—it also affects how people feel living together.</p>
+
+    <p><span class="speaker">Annie:</span> Have your habits changed since you first moved out?</p>
+    <p><span class="speaker">Alex:</span> A lot. At first I cared more about making things look aesthetic, but now I focus more on practicality and comfort.</p>
+
+    <p><span class="speaker">Annie:</span> What made you change your perspective?</p>
+    <p><span class="speaker">Alex:</span> I realized that if something looks good but is annoying to maintain, it doesn’t really work long term. Living somewhere every day changes how you think about space.</p>
+
+    <p><span class="speaker">Annie:</span> Do you think you’ve learned through experience?</p>
+    <p><span class="speaker">Alex:</span> Yeah, completely. Nobody really teaches you these things—you learn by making mistakes and figuring out what works for your own lifestyle.</p>
+
+    <p><span class="speaker">Annie:</span> Would you describe organizing daily life as a form of design?</p>
+    <p><span class="speaker">Alex:</span> I think so, because you’re constantly shaping your environment around your needs and trying to improve how people live in that space.</p>
   </div>
 </div>
 
+<!-- Interview 4 -->
 <div class="modal" id="i4">
   <div class="modal-content">
-    <span class="close" onclick="closeModal('i4')">✖</span>
-    <h2>Cleaning</h2>
-    <p>Maria sees cleaning as transforming space and emotion.</p>
+    <button class="close" onclick="closeModal('i4')">×</button>
+    <h2>Interview 4 — Cleaning and Atmosphere as Design</h2>
+    <p><strong>Interviewee:</strong> Maria Lopez, 52, house cleaner</p>
+    <p><strong>Location:</strong> In-person, client’s apartment</p>
+
+    <h3>Full Interview</h3>
+
+    <p><span class="speaker">Mona:</span> When you clean a space, do you ever feel like you’re transforming or redesigning it?</p>
+    <p><span class="speaker">Maria:</span> Yes, definitely. Cleaning isn’t only about removing dirt. When a space is clean and organized, it completely changes how it feels and how people move through it.</p>
+
+    <p><span class="speaker">Mona:</span> What do you usually pay attention to while cleaning?</p>
+    <p><span class="speaker">Maria:</span> I pay attention to both appearance and comfort. For example, I think about whether the room feels open, calm, and easy to use after I finish.</p>
+
+    <p><span class="speaker">Mona:</span> Do you think small details matter?</p>
+    <p><span class="speaker">Maria:</span> Very much. Even small things like how pillows are placed or how objects are arranged can change the atmosphere of a room.</p>
+
+    <p><span class="speaker">Mona:</span> Do you make adjustments while working?</p>
+    <p><span class="speaker">Maria:</span> Always. Every home is different, and sometimes I realize a different arrangement works better once I’m actually in the space.</p>
+
+    <p><span class="speaker">Yi:</span> Do you think cleaning involves problem-solving?</p>
+    <p><span class="speaker">Maria:</span> Yes, all the time. Sometimes spaces are very crowded or difficult to organize, so I have to figure out practical solutions.</p>
+
+    <p><span class="speaker">Yi:</span> Do different homes create different challenges?</p>
+    <p><span class="speaker">Maria:</span> Definitely. Some homes are small, some have children, some have pets. Every space has different needs, so I can’t clean every home the same way.</p>
+
+    <p><span class="speaker">Yi:</span> Do you usually follow a system or improvise?</p>
+    <p><span class="speaker">Maria:</span> I have a general routine, but I also adapt depending on the situation and what the client needs most.</p>
+
+    <p><span class="speaker">Yi:</span> So cleaning is more like an ongoing process?</p>
+    <p><span class="speaker">Maria:</span> Yes, because spaces are always changing as people live in them.</p>
+
+    <p><span class="speaker">Xinyi:</span> Do you think about the people who live in the space while cleaning?</p>
+    <p><span class="speaker">Maria:</span> Yes, that’s one of the most important parts. Different people have different habits and lifestyles.</p>
+
+    <p><span class="speaker">Xinyi:</span> How does that affect your decisions?</p>
+    <p><span class="speaker">Maria:</span> For example, if a family has children, I try to make things safer and easier to access. If someone is older, I think more about comfort and convenience.</p>
+
+    <p><span class="speaker">Xinyi:</span> Do you think cleaning changes people emotionally?</p>
+    <p><span class="speaker">Maria:</span> Yes. When people come home to a clean space, they usually feel more relaxed and peaceful. The environment affects emotions a lot more than people realize.</p>
+
+    <p><span class="speaker">Xinyi:</span> So cleaning is also about creating an emotional experience?</p>
+    <p><span class="speaker">Maria:</span> Yes, exactly. It’s not just physical work—it also changes how people experience their home.</p>
+
+    <p><span class="speaker">Annie:</span> Have your cleaning habits changed over the years?</p>
+    <p><span class="speaker">Maria:</span> Yes, very much. I notice details now that I didn’t notice before, and I think more carefully about how people actually use their spaces.</p>
+
+    <p><span class="speaker">Annie:</span> What helped you improve over time?</p>
+    <p><span class="speaker">Maria:</span> Experience mostly. After working in many homes, I’ve learned what kinds of arrangements make spaces feel more comfortable and functional.</p>
+
+    <p><span class="speaker">Annie:</span> Do you think experience teaches you more than instructions?</p>
+    <p><span class="speaker">Maria:</span> Yes, because every home teaches you something different. You learn by observing people and understanding how they live.</p>
+
+    <p><span class="speaker">Annie:</span> Would you say cleaning can be considered a form of design?</p>
+    <p><span class="speaker">Maria:</span> I think so, because you’re shaping the environment to better support the people living in it.</p>
   </div>
 </div>
 
+<footer>
+  Caregiving Interview Project by Mona, Yi, Xinyi, Annie
+</footer>
+<div class="emoji-cursor" id="emojiCursor">🍳</div>
+
 <script>
+const emojiCursor = document.getElementById("emojiCursor");
+
+document.addEventListener("mousemove", function(e){
+  emojiCursor.style.left = e.clientX + "px";
+  emojiCursor.style.top = e.clientY + "px";
+});
+
+
+document.querySelector(".broom").addEventListener("mouseleave", function(){
+  emojiCursor.textContent = "🍳";
+});
+
 function openModal(id){
-  document.getElementById(id).style.display="flex";
+  document.getElementById(id).style.display = "flex";
 }
 
 function closeModal(id){
-  document.getElementById(id).style.display="none";
+  document.getElementById(id).style.display = "none";
 }
+
+window.addEventListener("click", function(e){
+  document.querySelectorAll(".modal").forEach(function(modal){
+    if(e.target === modal){
+      modal.style.display = "none";
+    }
+  });
+});
 </script>
 
 </body>
