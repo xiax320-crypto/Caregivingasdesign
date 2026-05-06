@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Everyday Designers</title>
+
+<!-- Cute fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Nunito",sans-serif;
+  background:#fff6ec;
+  color:#5a3b2e;
+}
+
+/* TITLE */
+header{
+  min-height:100vh;
+  padding:40px;
+  text-align:center;
+}
+
+h1{
+  font-family:"Cherry Bomb One",cursive;
+  font-size:64px;
+  color:#ff7a59;
+}
+
+.subtitle{
+  margin-top:15px;
+  font-size:18px;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* SCENE */
+.scene{
+  margin-top:60px;
+  position:relative;
+  height:500px;
+}
+
+/* FLOATING OBJECTS */
+.item{
+  position:absolute;
+  cursor:pointer;
+  text-align:center;
+  animation:float 3s ease-in-out infinite;
+  transition:0.3s;
+}
+
+.item:hover{
+  transform:scale(1.2) rotate(-6deg);
+}
+
+.icon{
+  font-size:110px;
+}
+
+.item span{
+  display:block;
+  margin-top:8px;
+  font-weight:800;
+  background:#fff3b5;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:16px;
+}
+
+/* POSITIONS */
+.pot{left:10%; top:100px;}
+.sofa{right:10%; top:120px;}
+.desk{left:25%; bottom:40px;}
+.broom{right:25%; bottom:40px;}
+
+/* FLOAT ANIMATION */
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+
+/* SECTIONS */
+section{
+  padding:70px 12%;
+}
+
+.section-title{
+  font-family:"Cherry Bomb One";
+  font-size:40px;
+  text-align:center;
+  color:#ff7a59;
+  margin-bottom:30px;
+}
+
+.card{
+  background:#fffdf8;
+  padding:30px;
+  border-radius:25px;
+  margin-bottom:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  line-height:1.7;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.quote{
+  margin-top:15px;
+  background:#ffe8d6;
+  padding:15px;
+  border-radius:15px;
+  font-style:italic;
+}
+
+/* LEARNING */
+.learn{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:20px;
+}
+
+.learn div{
+  background:#fff3d9;
+  padding:20px;
+  border-radius:20px;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  max-width:700px;
+  max-height:80vh;
+  overflow:auto;
+}
+
+.close{
+  float:right;
+  cursor:pointer;
+  font-size:22px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+  .grid, .learn{
+    grid-template-columns:1fr;
+  }
+
+  .scene{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    height:auto;
+  }
+
+  .item{position:static;}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Everyday Designers</h1>
+  <p class="subtitle">
+    Small daily actions — cooking, cleaning, organizing — can also be design.
+  </p>
+
+  <div class="scene">
+
+    <div class="item pot" onclick="openModal('i1')">
+      <div class="icon">🥘</div>
+      <span>Cooking</span>
+    </div>
+
+    <div class="item sofa" onclick="openModal('i2')">
+      <div class="icon">🛋️</div>
+      <span>Organizing</span>
+    </div>
+
+    <div class="item desk" onclick="openModal('i3')">
+      <div class="icon">🧸</div>
+      <span>Student Life</span>
+    </div>
+
+    <div class="item broom" onclick="openModal('i4')">
+      <div class="icon">🧹</div>
+      <span>Cleaning</span>
+    </div>
+
+  </div>
+
+</header>
+
+<!-- INTRO -->
+<section>
+  <h2 class="section-title">About</h2>
+  <div class="card">
+    This project explores how everyday people think and act like designers without realizing it. 
+    Through four interviews, we discovered that design exists in daily life — in cooking, organizing, 
+    cleaning, and adapting spaces.
+  </div>
+</section>
+
+<!-- INTERVIEWS -->
+<section>
+  <h2 class="section-title">Interviews</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Cooking as Design</h3>
+      <p>Li Wei describes cooking as balancing flavor, color, and emotion.</p>
+      <div class="quote">“Cooking is creating an experience for others.”</div>
+    </div>
+
+    <div class="card">
+      <h3>Organizing Space</h3>
+      <p>Chen Mei adjusts space based on how people live.</p>
+      <div class="quote">“It’s about comfort, not just storage.”</div>
+    </div>
+
+    <div class="card">
+      <h3>Student Life</h3>
+      <p>Alex constantly redesigns his small apartment.</p>
+      <div class="quote">“It never feels finished.”</div>
+    </div>
+
+    <div class="card">
+      <h3>Cleaning</h3>
+      <p>Maria sees cleaning as changing atmosphere.</p>
+      <div class="quote">“It changes how people feel.”</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LEARNING -->
+<section>
+  <h2 class="section-title">What We Learned</h2>
+
+  <div class="learn">
+
+    <div>
+      <h3>Design is Everyday</h3>
+      <p>People design without realizing it.</p>
+    </div>
+
+    <div>
+      <h3>Design is Iteration</h3>
+      <p>Everything improves through adjustment.</p>
+    </div>
+
+    <div>
+      <h3>Design is Emotion</h3>
+      <p>It shapes feelings, not just function.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section>
+  <h2 class="section-title">Reflection</h2>
+
+  <div class="card">
+    At first, we focused on functionality. But interviews showed that people care more about experience and feeling.
+    <br><br>
+    Many participants did not see themselves as designers, even though they made design decisions.
+    <br><br>
+    This project changed how we understand design — it is part of everyday life.
+  </div>
+
+</section>
+
+<!-- MODALS -->
+
+<div class="modal" id="i1">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('i1')">✖</span>
+    <h2>Cooking as Design</h2>
+    <p>Li Wei combines ingredients like a designer combines elements. He adjusts constantly and cooks based on people’s needs.</p>
+  </div>
+</div>
+
+<div class="modal" id="i2">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('i2')">✖</span>
+    <h2>Organizing Space</h2>
+    <p>Chen Mei organizes based on balance, comfort, and family habits.</p>
+  </div>
+</div>
+
+<div class="modal" id="i3">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('i3')">✖</span>
+    <h2>Student Life</h2>
+    <p>Alex redesigns his environment constantly through trial and error.</p>
+  </div>
+</div>
+
+<div class="modal" id="i4">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('i4')">✖</span>
+    <h2>Cleaning</h2>
+    <p>Maria sees cleaning as transforming space and emotion.</p>
+  </div>
+</div>
+
+<script>
+function openModal(id){
+  document.getElementById(id).style.display="flex";
+}
+
+function closeModal(id){
+  document.getElementById(id).style.display="none";
+}
+</script>
+
+</body>
+</html>
